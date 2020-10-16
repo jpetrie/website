@@ -1,7 +1,58 @@
-p {
+:root {
+  --color-background: #ffffff;
+  --color-text: #000000;
+  --color-divider: #db8282;
+  --color-link-unvisited: #db8282;
+  --color-link-hover: var(--color-link-unvisited);
+  --color-link-active: #db6464;
+  --color-link-visited: #db64b7;
+}
+
+@media(prefers-color-scheme: dark) {
+  :root {
+    --color-background: #3d3d3d;
+    --color-text: #cccccc;
+    --color-divider: #a73535;
+    --color-link-unvisited: #a73535;
+    --color-link-hover: var(--color-link-unvisited);
+    --color-link-active: #c73636;
+    --color-link-visited: #b6216b;
+  }
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
   font-family: Helvetica, Arial, sans-serif;
   font-size: 14pt;
   font-weight: lighter;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:link {
+  text-decoration-color: var(--color-link-unvisited);
+}
+
+a:visited {
+  text-decoration-color: var(--color-link-visited);
+}
+
+a:hover {
+  color: var(--color-link-hover);
+  text-decoration-color: var(--color-link-hover);
+}
+
+a:active {
+  color: var(--color-link-active);
+  text-decoration-color: var(--color-link-active);
+}
+
+p {
   margin-left: auto;
   margin-right: auto;
   max-width: 800px;
@@ -10,7 +61,6 @@ p {
 }
 
 h1 {
-  font-family: Helvetica, Arial, sans-serif;
   font-size: 250%;
   font-weight: normal;
   margin-top: 0.5em;
@@ -18,7 +68,7 @@ h1 {
 }
 
 hr {
-  background: #daa;
+  background: var(--color-divider);
   border: 0;
   height: 1px;
   width: 75%;
