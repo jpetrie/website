@@ -1,0 +1,39 @@
+# Deploys static site content to GitHub Pages.
+name: Publish
+
+on:
+  push:
+    branches: ["main"]
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Configure to allow only one concurrent deployment. Runs queued between an in-progress action and the latest
+# queued action are skipped, but in-progress runs are not cancelled.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+      - name: Upload
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: "."
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v3
+
