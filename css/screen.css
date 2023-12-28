@@ -1,0 +1,53 @@
+:root {
+  --color-background: #ffffff;
+  --color-text: #000000;
+  --color-link: #244dc9;
+  --color-divider: #bcbcbc;
+}
+
+@media(prefers-color-scheme: dark) {
+  :root {
+    --color-background: #181818;
+    --color-text: #b9b9b9;
+    --color-link: #4e67d8;
+    --color-divider: #3a3a3a;
+  }
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 2%;
+  font-size: 13pt;
+  font-family: serif;
+}
+
+header {
+  font-weight: bold;
+}
+
+p {
+  width: 85%;
+  margin-left: 15%;
+}
+
+hr {
+  background: var(--color-divider);
+  border: 0;
+  height: 1px;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--color-link);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
